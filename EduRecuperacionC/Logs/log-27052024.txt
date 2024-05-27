@@ -1,0 +1,5 @@
+Ha seleccionado la opcion 1
+Ha seleccionado la opcion 1
+Ha seleccionado la opcion 1
+Ha seleccionado una opcion que no coincide con ninguna mostrada anteriormente
+Ha seleccionado la opcion 0
