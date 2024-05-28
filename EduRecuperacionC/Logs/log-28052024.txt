@@ -1,0 +1,6 @@
+Ha seleccionado la opcion 1
+Ha seleccionado la opcion 1
+Ha seleccionado la opcion 1
+Input string was not in a correct format.
+Ha seleccionado la opcion 0
+Ha seleccionado la opcion 0

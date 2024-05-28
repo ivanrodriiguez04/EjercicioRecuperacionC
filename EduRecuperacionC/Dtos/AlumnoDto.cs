@@ -23,18 +23,10 @@ namespace EduRecuperacionC.Dtos
         private string emailAlumno = "aaaaa";
 
         //Constructores
-        public AlumnoDto(long idAlumno, string nombreAlumno, string apellido1Alumno, string apellido2Alumno, string dniAlumno, string direccionAlumno, int telefonoAlumno, string emailAlumno)
-        {
-            this.IdAlumno = idAlumno;
-            this.NombreAlumno = nombreAlumno;
-            this.Apellido1Alumno = apellido1Alumno;
-            this.Apellido2Alumno = apellido2Alumno;
-            this.DniAlumno = dniAlumno;
-            this.DireccionAlumno = direccionAlumno;
-            this.TelefonoAlumno = telefonoAlumno;
-            this.EmailAlumno = emailAlumno;
-        }
-        public AlumnoDto() { }
+        public AlumnoDto() 
+        { }
+
+
         //Getters & Setters
         public long IdAlumno { get => idAlumno; set => idAlumno = value; }
         public string NombreAlumno { get => nombreAlumno; set => nombreAlumno = value; }

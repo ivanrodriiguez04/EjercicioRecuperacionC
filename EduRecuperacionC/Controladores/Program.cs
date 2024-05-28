@@ -31,6 +31,7 @@ namespace EduRecuperacionC.Controladores
             //Objetos
             MenuInterfaz mI = new MenuImplementacion();
             FicheroInterfaz fI=new FicheroImplementacion();
+            OperativaInterfaz oI = new OperativaImplementacion();
             //Variables
             int opcionSeleccionada = 0;
             bool cerrarMenu=true;
@@ -55,6 +56,7 @@ namespace EduRecuperacionC.Controladores
                             Console.WriteLine("[INFO] - Ha selecciona la opcion 1");
                             Console.WriteLine("[INFO] - Se va a dar el alta de alumnos");
                             fI.escribirFicheroLog("Ha seleccionado la opcion 1");
+                            oI.darAltaAlumno(listaAlumnos);
                             break;
                         default:
                             Console.WriteLine("[INFO] - La opcion indicada por el usuario no coincide con ninguna opcion mostrada anteriormente");
