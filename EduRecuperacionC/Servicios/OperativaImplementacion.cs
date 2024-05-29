@@ -14,14 +14,40 @@ namespace EduRecuperacionC.Servicios
     /// </summary>
     internal class OperativaImplementacion : OperativaInterfaz
     {
-        public void darAltaAlumno(List<AlumnoDto> listaAlumnos)
+        public void borrarAlumnos()
+        {
+            FicheroImplementacion fI = new FicheroImplementacion();
+            AlumnoDto aux = new AlumnoDto();
+
+            Console.WriteLine("Introduzca el dni del alumno a borrar: ");
+            string dniBorrar=Console.ReadLine();
+
+            foreach (AlumnoDto alumno in Controladores.Program.listaAlumnos) 
+            { 
+                if (alumno.DniAlumno.Equals(dniBorrar))
+                {
+                    aux = alumno;
+                    break;
+                }
+            }
+            Controladores.Program.listaAlumnos.Remove(aux);
+        }
+
+        public void darAltaAlumno()
         {
             AlumnoDto alumno = crearAlumno();
-            listaAlumnos.Add(alumno);
+            Controladores.Program.listaAlumnos.Add(alumno);
         }
+
+        /// <summary>
+        /// Metodo que se utiliza para pedir la informacion del nuevo usuario
+        /// irodhan -> 28/05/2024
+        /// </summary>
+        /// <returns></returns>
         private AlumnoDto crearAlumno() 
         {
             FicheroImplementacion fI = new FicheroImplementacion();
+            char confirmacion = 'a';
             try 
             {
                 AlumnoDto alumno = new AlumnoDto();
@@ -39,13 +65,21 @@ namespace EduRecuperacionC.Servicios
                 Console.WriteLine("Introduzca el telefono del alumno: ");
                 alumno.TelefonoAlumno = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Introduzca el email del alumno: ");
-                alumno.NombreAlumno = Console.ReadLine();
+                alumno.EmailAlumno = Console.ReadLine();
                 return alumno;
             }
             catch(Exception ex) 
             {
                 fI.escribirFicheroLog(ex.Message);
                 throw;
+            }
+        }
+
+         public void mostrarLista()
+        {
+            foreach (AlumnoDto alumno in Controladores.Program.listaAlumnos) 
+            {
+                Console.WriteLine(alumno.ToString());
             }
         }
     }

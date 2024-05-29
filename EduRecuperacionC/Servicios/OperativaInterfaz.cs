@@ -17,6 +17,16 @@ namespace EduRecuperacionC.Servicios
         /// Metodo que crea un usuario y lo guarda en la lista de alumnos
         /// irodhan -> 28/05/2024
         /// </summary>
-        public void darAltaAlumno(List<AlumnoDto> listaAlumnos);
+        public void darAltaAlumno();
+        /// <summary>
+        /// Metodo que borra un usuario dentro de la lista de alumnos
+        /// irodhan -> 29/05/2024
+        /// </summary>
+        public void borrarAlumnos();
+        /// <summary>
+        /// Metodo que muestra el contenido de la lista de los alumnos
+        /// irodhan -> 29/05/2024
+        /// </summary>
+        public void mostrarLista();
     }
 }

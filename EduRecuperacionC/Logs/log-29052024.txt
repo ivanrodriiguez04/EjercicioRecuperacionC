@@ -1,0 +1,30 @@
+
+Ha seleccionado la opcion 1
+Ha seleccionado la opcion 2
+Ha seleccionado la opcion 0
+Ha seleccionado la opcion 1
+Ha seleccionado la opcion 0
+Ha seleccionado la opcion 1
+Ha seleccionado la opcion 0
+Ha seleccionado la opcion 3 (Se va mostrar la lista)
+Ha seleccionado la opcion 0 (Cerrar aplicacion)
+Ha seleccionado la opcion 3 (Se va mostrar la lista)
+Ha seleccionado la opcion 1 (Dar de alta a un nuevo alumno)
+Ha seleccionado la opcion 3 (Se va mostrar la lista)
+Ha seleccionado la opcion 0 (Cerrar aplicacion)Ha seleccionado la opcion 3 (Se va mostrar la lista)
+Ha seleccionado la opcion 1 (Dar de alta a un nuevo alumno)
+Ha seleccionado la opcion 3 (Se va mostrar la lista)
+Ha seleccionado la opcion 2 (Se va a borrar a un alumno)
+Ha seleccionado la opcion 3 (Se va mostrar la lista)
+Ha seleccionado la opcion 1 (Dar de alta a un nuevo alumno)
+Ha seleccionado la opcion 1 (Dar de alta a un nuevo alumno)
+Ha seleccionado la opcion 3 (Se va mostrar la lista)
+Ha seleccionado la opcion 3 (Se va mostrar la lista)
+Ha seleccionado la opcion 4 (Guardar lista en fichero)
+Cannot write to a closed TextWriter.
+Object name: 'StreamWriter'.
+Ha seleccionado la opcion 3 (Se va mostrar la lista)
+Ha seleccionado la opcion 4 (Guardar lista en fichero)
+Cannot write to a closed TextWriter.
+Object name: 'StreamWriter'.
+Ha seleccionado la opcion 0 (Cerrar aplicacion)

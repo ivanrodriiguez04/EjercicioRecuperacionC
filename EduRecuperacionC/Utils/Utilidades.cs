@@ -29,13 +29,13 @@ namespace EduRecuperacionC.Utils
                 string fechaActual = fecha.ToString("ddMMyyyy");
                 //Guardamos la concatenacion de los parametros en un string
                 nombreFichero = string.Concat("log-", fechaActual, ".txt");
-                //Devolvemos el nombre del fichero
                 
             }
             catch (Exception e)
             {
                 Console.WriteLine("[INFO] - Ha ocurrido un error a la hora de la creacion del nombre del fichero");
             }
+            //Devolvemos el nombre del fichero
             return nombreFichero;
 
 

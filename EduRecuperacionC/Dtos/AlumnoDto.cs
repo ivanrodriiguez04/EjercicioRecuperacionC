@@ -37,6 +37,17 @@ namespace EduRecuperacionC.Dtos
         public int TelefonoAlumno { get => telefonoAlumno; set => telefonoAlumno = value; }
         public string EmailAlumno { get => emailAlumno; set => emailAlumno = value; }
 
+        override
         //ToString
+        public string ToString() 
+        {
+            string concatenacion =string.Concat(this.DniAlumno," - ",this.NombreAlumno);
+            return concatenacion;
+        }
+        public string ToString(char caracter)
+        {
+            string concatenacion = string.Concat(this.DniAlumno, caracter, this.NombreAlumno);
+            return concatenacion;
+        }
     }
 }

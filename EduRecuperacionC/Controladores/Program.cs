@@ -24,6 +24,7 @@ namespace EduRecuperacionC.Controladores
         //Variables 
         static string rutaCarpetaLog = "C:\\Users\\csi22-irodhan\\Desktop\\Programacion\\Recuperacion\\EduRecuperacionC\\Logs\\"; //Se termina en dos barras para que se añada dentro de la carpeta
         public static string rutaFicheroLog = string.Concat(rutaCarpetaLog,Utilidades.crearNombreLog());
+        public static string rutaFichero = "C:\\Users\\csi22-irodhan\\Desktop\\Programacion\\Recuperacion\\EduRecuperacionC\\Ficheros\\FicheroLista.txt";
         public static List<AlumnoDto> listaAlumnos=new List<AlumnoDto>();
 
         static void Main(string[] args) 
@@ -49,14 +50,32 @@ namespace EduRecuperacionC.Controladores
                         case 0:
                             Console.WriteLine("[INFO] - Ha selecciona la opcion 0");
                             Console.WriteLine("[INFO] - La aplicacion va a cerrarse");
-                            fI.escribirFicheroLog("Ha seleccionado la opcion 0");
+                            fI.escribirFicheroLog("Ha seleccionado la opcion 0 (Cerrar aplicacion)");
                             cerrarMenu = false;
                             break;
                         case 1:
                             Console.WriteLine("[INFO] - Ha selecciona la opcion 1");
                             Console.WriteLine("[INFO] - Se va a dar el alta de alumnos");
-                            fI.escribirFicheroLog("Ha seleccionado la opcion 1");
-                            oI.darAltaAlumno(listaAlumnos);
+                            fI.escribirFicheroLog("Ha seleccionado la opcion 1 (Dar de alta a un nuevo alumno)");
+                            oI.darAltaAlumno();
+                            break;
+                        case 2:
+                            Console.WriteLine("[INFO] - Ha selecciona la opcion 2");
+                            Console.WriteLine("[INFO] - Se va a borrar alumnos");
+                            fI.escribirFicheroLog("Ha seleccionado la opcion 2 (Se va a borrar a un alumno)");
+                            oI.borrarAlumnos();
+                            break;
+                        case 3:
+                            Console.WriteLine("[INFO] - Ha selecciona la opcion 3");
+                            Console.WriteLine("[INFO] - Se va a mostrar la lista");
+                            fI.escribirFicheroLog("Ha seleccionado la opcion 3 (Se va mostrar la lista)");
+                            oI.mostrarLista();
+                            break;
+                        case 4:
+                            Console.WriteLine("[INFO] - Ha selecciona la opcion 4");
+                            Console.WriteLine("[INFO] - Se va a guardar la informacion dentro de un fichero");
+                            fI.escribirFicheroLog("Ha seleccionado la opcion 4 (Guardar lista en fichero)");
+                            fI.guardarLista();
                             break;
                         default:
                             Console.WriteLine("[INFO] - La opcion indicada por el usuario no coincide con ninguna opcion mostrada anteriormente");
