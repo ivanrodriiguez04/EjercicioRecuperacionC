@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace EduRecuperacionC.Servicios
 {
@@ -80,6 +81,22 @@ namespace EduRecuperacionC.Servicios
             foreach (AlumnoDto alumno in Controladores.Program.listaAlumnos) 
             {
                 Console.WriteLine(alumno.ToString());
+            }
+        }
+
+        public void modificarAlumno()
+        {
+            AlumnoDto alumno = new AlumnoDto();
+            Console.WriteLine("Indique el dni del alumno a modificar:");
+            string dniModificar=Console.ReadLine();
+
+            if (alumno.DniAlumno.Equals(dniModificar)) 
+            { 
+            
+            }
+            else 
+            {
+                Console.WriteLine("El dni indicado no coincide con ningun alumno");
             }
         }
     }

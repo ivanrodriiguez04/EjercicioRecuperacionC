@@ -24,6 +24,7 @@ namespace EduRecuperacionC.Servicios
                 Console.WriteLine("| 2. Borrar alumnos     |");
                 Console.WriteLine("| 3. Mostrar lista      |");
                 Console.WriteLine("| 4. Guardar en fichero |");
+                Console.WriteLine("| 5. Modificar datos    |");
                 Console.WriteLine("|-----------------------|");
                 Console.WriteLine("Indique que opcion desea utilizar: ");
                 opcion = Console.ReadKey(true).KeyChar - ('0');

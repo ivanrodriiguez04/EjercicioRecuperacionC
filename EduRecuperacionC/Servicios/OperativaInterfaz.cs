@@ -28,5 +28,11 @@ namespace EduRecuperacionC.Servicios
         /// irodhan -> 29/05/2024
         /// </summary>
         public void mostrarLista();
+
+        /// <summary>
+        /// Metodo que modifica la informacion del alumno elegido
+        /// irodhan -> 03/06/2024
+        /// </summary>
+        public void modificarAlumno();
     }
 }

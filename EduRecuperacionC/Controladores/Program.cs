@@ -77,6 +77,12 @@ namespace EduRecuperacionC.Controladores
                             fI.escribirFicheroLog("Ha seleccionado la opcion 4 (Guardar lista en fichero)");
                             fI.guardarLista();
                             break;
+                        case 5:
+                            Console.WriteLine("[INFO] - Ha selecciona la opcion 5");
+                            Console.WriteLine("[INFO] - Se va a modificar la informacion de un alumno");
+                            fI.escribirFicheroLog("Ha seleccionado la opcion 4 (Modificar datos)");
+                            oI.modificarAlumno();
+                            break;
                         default:
                             Console.WriteLine("[INFO] - La opcion indicada por el usuario no coincide con ninguna opcion mostrada anteriormente");
                             fI.escribirFicheroLog("Ha seleccionado una opcion que no coincide con ninguna opcion mostrada anteriormente");

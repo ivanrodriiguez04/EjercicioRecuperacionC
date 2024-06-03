@@ -19,5 +19,11 @@ namespace EduRecuperacionC.Servicios
         /// irodhan -> 29/05/2024
         /// </summary>
         public void guardarLista();
+
+        /// <summary>
+        /// metodo que hace una carga inicial del fichero
+        /// irodhan -> 03/06/2024
+        /// </summary>
+        public void cargaInicial();
     }
 }

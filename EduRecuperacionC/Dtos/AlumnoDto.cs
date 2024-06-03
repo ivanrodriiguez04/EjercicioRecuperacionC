@@ -21,6 +21,7 @@ namespace EduRecuperacionC.Dtos
         private string direccionAlumno = "aaaaaa";
         private int telefonoAlumno = 0;
         private string emailAlumno = "aaaaa";
+        private DateTime fchNacimientoAlumno = new DateTime(31,12,9999);
 
         //Constructores
         public AlumnoDto() 
@@ -36,6 +37,7 @@ namespace EduRecuperacionC.Dtos
         public string DireccionAlumno { get => direccionAlumno; set => direccionAlumno = value; }
         public int TelefonoAlumno { get => telefonoAlumno; set => telefonoAlumno = value; }
         public string EmailAlumno { get => emailAlumno; set => emailAlumno = value; }
+        public DateTime FchNacimientoAlumno { get => fchNacimientoAlumno; set => fchNacimientoAlumno = value; }
 
         override
         //ToString
@@ -46,7 +48,7 @@ namespace EduRecuperacionC.Dtos
         }
         public string ToString(char caracter)
         {
-            string concatenacion = string.Concat(this.DniAlumno, caracter, this.NombreAlumno);
+            string concatenacion = string.Concat(this.DniAlumno, caracter, this.NombreAlumno,caracter,this.Apellido1Alumno, caracter, this.Apellido2Alumno, caracter, this.DireccionAlumno, caracter, this.TelefonoAlumno, caracter, this.EmailAlumno, caracter, this.fchNacimientoAlumno);
             return concatenacion;
         }
     }
