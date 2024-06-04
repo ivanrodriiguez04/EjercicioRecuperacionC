@@ -21,7 +21,7 @@ namespace EduRecuperacionC.Dtos
         private string direccionAlumno = "aaaaaa";
         private int telefonoAlumno = 0;
         private string emailAlumno = "aaaaa";
-        private DateTime fchNacimientoAlumno = new DateTime(31,12,9999);
+        private DateTime fchNacimientoAlumno = DateTime.Now;
 
         //Constructores
         public AlumnoDto() 
@@ -48,7 +48,7 @@ namespace EduRecuperacionC.Dtos
         }
         public string ToString(char caracter)
         {
-            string concatenacion = string.Concat(this.DniAlumno, caracter, this.NombreAlumno,caracter,this.Apellido1Alumno, caracter, this.Apellido2Alumno, caracter, this.DireccionAlumno, caracter, this.TelefonoAlumno, caracter, this.EmailAlumno, caracter, this.fchNacimientoAlumno);
+            string concatenacion = string.Concat(this.IdAlumno,caracter, this.NombreAlumno,caracter,this.Apellido1Alumno, caracter, this.Apellido2Alumno, caracter,this.DniAlumno, caracter, this.DireccionAlumno, caracter, this.TelefonoAlumno, caracter, this.EmailAlumno, caracter, this.fchNacimientoAlumno.ToString("dd/MM/yyyy"));
             return concatenacion;
         }
     }

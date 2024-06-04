@@ -1,11 +1,6 @@
 ﻿using EduRecuperacionC.Dtos;
 using EduRecuperacionC.Servicios;
 using EduRecuperacionC.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EduRecuperacionC.Controladores
 {
@@ -23,19 +18,21 @@ namespace EduRecuperacionC.Controladores
 
         //Variables 
         static string rutaCarpetaLog = "C:\\Users\\csi22-irodhan\\Desktop\\Programacion\\Recuperacion\\EduRecuperacionC\\Logs\\"; //Se termina en dos barras para que se añada dentro de la carpeta
-        public static string rutaFicheroLog = string.Concat(rutaCarpetaLog,Utilidades.crearNombreLog());
+        public static string rutaFicheroLog = string.Concat(rutaCarpetaLog, Utilidades.crearNombreLog());
         public static string rutaFichero = "C:\\Users\\csi22-irodhan\\Desktop\\Programacion\\Recuperacion\\EduRecuperacionC\\Ficheros\\FicheroLista.txt";
-        public static List<AlumnoDto> listaAlumnos=new List<AlumnoDto>();
+        public static List<AlumnoDto> listaAlumnos = new List<AlumnoDto>();
 
-        static void Main(string[] args) 
+        static void Main(string[] args)
         {
+            //Ordena por los dni de mayor a menor y si son igual , se ordena por orden alfabetico dentro de los ficheros
             //Objetos
             MenuInterfaz mI = new MenuImplementacion();
-            FicheroInterfaz fI=new FicheroImplementacion();
+            FicheroInterfaz fI = new FicheroImplementacion();
             OperativaInterfaz oI = new OperativaImplementacion();
+            fI.cargaInicial();
             //Variables
             int opcionSeleccionada = 0;
-            bool cerrarMenu=true;
+            bool cerrarMenu = true;
 
             //Creamos un bucle do...while
             do
@@ -94,7 +91,8 @@ namespace EduRecuperacionC.Controladores
                     try
                     {
                         fI.escribirFicheroLog(e.Message);
-                    }catch (Exception ex) {}
+                    }
+                    catch (Exception ex) { }
                 }
             } while (cerrarMenu);
         }

@@ -17,22 +17,24 @@ namespace EduRecuperacionC.Servicios
         {
             try 
             {
-                if (File.Exists(Controladores.Program.rutaFichero))
+                string[] lineas = File.ReadAllLines(Controladores.Program.rutaFichero);
+                foreach (string linea in lineas)
                 {
-                    string[] lineas = File.ReadAllLines(Controladores.Program.rutaFichero);
-                    foreach (string linea in lineas) 
-                    { 
-                        AlumnoDto alumno = new AlumnoDto();
-                        string[]campos= linea.Split(',');
-                        alumno.IdAlumno = Utilidades.asignarId();
-                        alumno.DniAlumno = campos[0];
-                        alumno.NombreAlumno = campos[1];
-                        Controladores.Program.listaAlumnos.Add(alumno);
-                    }
-                }
-                else 
-                {
-                    Console.WriteLine("[INFO] - El fichero no existe");
+                    AlumnoDto alumno = new AlumnoDto();
+                    string[] campos = linea.Split(";");
+                    long i = Convert.ToInt64(campos[0]);
+                    alumno.IdAlumno = i;
+                    alumno.NombreAlumno = campos[1];
+                    alumno.Apellido1Alumno = campos[2];
+                    alumno.Apellido2Alumno = campos[3];
+                    alumno.DniAlumno = campos[4];
+                    alumno.DireccionAlumno = campos[5];
+                    int tel = Convert.ToInt32(campos[6]);
+                    alumno.TelefonoAlumno = tel;
+                    alumno.EmailAlumno = campos[7];
+                    DateTime fch = Convert.ToDateTime(campos[8]);
+                    alumno.FchNacimientoAlumno = fch;
+                    Controladores.Program.listaAlumnos.Add(alumno);
                 }
             }
             catch (Exception ex) 
@@ -47,9 +49,10 @@ namespace EduRecuperacionC.Servicios
 
             try
             {
-                sw = new StreamWriter(Controladores.Program.rutaFicheroLog, true);
-                sw.WriteLine(mensaje);
-                sw.Close();
+                using (sw = new StreamWriter(Controladores.Program.rutaFicheroLog, true)) 
+                {
+                    sw.WriteLine(mensaje);
+                }
             }
             catch (Exception ex)
             { 
@@ -69,12 +72,13 @@ namespace EduRecuperacionC.Servicios
             StreamWriter sw = null;
             try
             {
-                sw = new StreamWriter(Controladores.Program.rutaFichero);
-                foreach (AlumnoDto alumno in Controladores.Program.listaAlumnos)
+                using (sw = new StreamWriter(Controladores.Program.rutaFichero)) 
                 {
-                    sw.WriteLine(alumno.ToString(';'));
-                    sw.Close();
-                }
+                    foreach (AlumnoDto alumno in Controladores.Program.listaAlumnos)
+                    {
+                        sw.WriteLine(alumno.ToString(';'));
+                    }
+                } 
             }
             catch (Exception ex)
             {

@@ -36,8 +36,10 @@ namespace EduRecuperacionC.Servicios
 
         public void darAltaAlumno()
         {
+            do { 
             AlumnoDto alumno = crearAlumno();
             Controladores.Program.listaAlumnos.Add(alumno);
+            } while (Controladores.Program.listaAlumnos.Count < 3);
         }
 
         /// <summary>
@@ -47,10 +49,6 @@ namespace EduRecuperacionC.Servicios
         /// <returns></returns>
         private AlumnoDto crearAlumno() 
         {
-            FicheroImplementacion fI = new FicheroImplementacion();
-            char confirmacion = 'a';
-            try 
-            {
                 AlumnoDto alumno = new AlumnoDto();
                 alumno.IdAlumno = Utilidades.asignarId();
                 Console.WriteLine("Introduzca el nombre del alumno: ");
@@ -67,13 +65,9 @@ namespace EduRecuperacionC.Servicios
                 alumno.TelefonoAlumno = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Introduzca el email del alumno: ");
                 alumno.EmailAlumno = Console.ReadLine();
+                Console.WriteLine("Introduzca su fecha de nacimiento (dd/MM/yyyy): ");
+                alumno.FchNacimientoAlumno = Convert.ToDateTime(Console.ReadLine());
                 return alumno;
-            }
-            catch(Exception ex) 
-            {
-                fI.escribirFicheroLog(ex.Message);
-                throw;
-            }
         }
 
          public void mostrarLista()
@@ -86,18 +80,82 @@ namespace EduRecuperacionC.Servicios
 
         public void modificarAlumno()
         {
-            AlumnoDto alumno = new AlumnoDto();
+            MenuInterfaz mI = new MenuImplementacion();
+            FicheroInterfaz fI=new FicheroImplementacion();
+            int opcion = 0;
+            bool cerrarMenu2=false;
             Console.WriteLine("Indique el dni del alumno a modificar:");
             string dniModificar=Console.ReadLine();
 
-            if (alumno.DniAlumno.Equals(dniModificar)) 
-            { 
-            
-            }
-            else 
+            foreach (AlumnoDto alumno in Controladores.Program.listaAlumnos) 
             {
-                Console.WriteLine("El dni indicado no coincide con ningun alumno");
+                if (alumno.DniAlumno.Equals(dniModificar))
+                {
+                    while (!cerrarMenu2) 
+                    {
+                        opcion = mI.mostrarSubmenuYSeleccion();
+                        switch (opcion)
+                        {
+                            case 0:
+                                Console.WriteLine("[INFO] - Ha selecciona la opcion 0");
+                                fI.escribirFicheroLog("Ha seleccionado la opcion 0 (Volver al menu principal)");
+                                cerrarMenu2 = true;
+                                break;
+                            case 1:
+                                Console.WriteLine("[INFO] - Ha selecciona la opcion 1");
+                                fI.escribirFicheroLog("Ha seleccionado la opcion 1 (Modificar nombre)");
+                                Console.WriteLine("Indique el nuevo nombre: ");
+                                alumno.NombreAlumno = Console.ReadLine();
+                                break;
+                            case 2:
+                                Console.WriteLine("[INFO] - Ha selecciona la opcion 2");
+                                fI.escribirFicheroLog("Ha seleccionado la opcion 2 (Modificar el 1º apellido)");
+                                Console.WriteLine("Indique el primer apellido: ");
+                                alumno.Apellido1Alumno = Console.ReadLine();
+                                break;
+                            case 3:
+                                Console.WriteLine("[INFO] - Ha selecciona la opcion 2");
+                                fI.escribirFicheroLog("Ha seleccionado la opcion 2 (Modificar el 2º apellido)");
+                                Console.WriteLine("Indique el segundo apellido: ");
+                                alumno.Apellido2Alumno = Console.ReadLine();
+                                break;
+                            case 4:
+                                Console.WriteLine("[INFO] - Ha selecciona la opcion 3");
+                                fI.escribirFicheroLog("Ha seleccionado la opcion 3 (Modificar la direccion)");
+                                Console.WriteLine("Indique la nueva direccion: ");
+                                alumno.DireccionAlumno = Console.ReadLine();
+                                break;
+                            case 5:
+                                Console.WriteLine("[INFO] - Ha selecciona la opcion 4");
+                                fI.escribirFicheroLog("Ha seleccionado la opcion 4 (Modificar el numero de telefono)");
+                                Console.WriteLine("Indique el nuevo telefono: ");
+                                alumno.TelefonoAlumno=Convert.ToInt32(Console.ReadLine());  
+                                break;
+                            case 6:
+                                Console.WriteLine("[INFO] - Ha selecciona la opcion 5");
+                                fI.escribirFicheroLog("Ha seleccionado la opcion 4 (Modificar el email)");
+                                Console.WriteLine("Indique el nuevo email: ");
+                                alumno.EmailAlumno = Console.ReadLine();
+                                break;
+                            case 7:
+                                Console.WriteLine("[INFO] - Ha selecciona la opcion 5");
+                                fI.escribirFicheroLog("Ha seleccionado la opcion 4 (Modificar la fecha de nacimiento)");
+                                Console.WriteLine("Indique la nueva fecha de nacimiento (dd/MM/yyyy): ");
+                                alumno.FchNacimientoAlumno = Convert.ToDateTime(Console.ReadLine());
+                                break;
+                            default:
+                                Console.WriteLine("[INFO] - La opcion indicada por el usuario no coincide con ninguna opcion mostrada anteriormente");
+                                fI.escribirFicheroLog("Ha seleccionado una opcion que no coincide con ninguna opcion mostrada anteriormente");
+                                break;
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("El dni indicado no coincide con ningun alumno");
+                }
             }
+            
         }
     }
 }

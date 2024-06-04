@@ -35,5 +35,32 @@ namespace EduRecuperacionC.Servicios
                 throw;
             }
         }
+
+        public int mostrarSubmenuYSeleccion()
+        {
+            int opcion = 0;
+            try
+            {
+                Console.WriteLine("|-----------------------|");
+                Console.WriteLine("|  Menu modificaciones  |");
+                Console.WriteLine("|-----------------------|");
+                Console.WriteLine("| 0. Volver             |");
+                Console.WriteLine("| 1. Nombre             |");
+                Console.WriteLine("| 2. Primer apellido    |");
+                Console.WriteLine("| 3. Segundo apellido   |");
+                Console.WriteLine("| 4. Direccion          |");
+                Console.WriteLine("| 5. Telefono           |");
+                Console.WriteLine("| 6. Email              |");
+                Console.WriteLine("| 7. Fecha nacimiento   |");
+                Console.WriteLine("|-----------------------|");
+                Console.WriteLine("Indique que opcion desea utilizar: ");
+                opcion = Console.ReadKey(true).KeyChar - ('0');
+                return opcion;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

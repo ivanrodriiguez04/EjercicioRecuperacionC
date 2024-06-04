@@ -14,5 +14,12 @@ namespace EduRecuperacionC.Servicios
         /// </summary>
         /// <returns>Devuelve la opcion indicada por el usuario</returns>
         public int mostrarMenuYSeleccion();
+
+        /// <summary>
+        /// Metodo que muestra y obtiene la opcion que desea modificar el usuario
+        /// irodhan -> 03/06/2024
+        /// </summary>
+        /// <returns></returns>
+        public int mostrarSubmenuYSeleccion();
     }
 }
